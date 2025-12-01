@@ -1,33 +1,170 @@
+/* Базовая структура страницы */
 body {
-  font-family: sans-serif;
-  max-width: 400px;
-  margin: 40px auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f5f6fa;
+  margin: 0;
   padding: 20px;
-  background: #fafafa;
+  display: flex;
+  justify-content: center;
 }
 
+.container {
+  width: 100%;
+  max-width: 540px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+}
+
+/* Заголовок */
 h1 {
   text-align: center;
+  margin-top: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #222;
 }
 
+/* Подзаголовки */
+h2 {
+  margin-top: 32px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Форма */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
-input, select, button {
-  padding: 10px;
-  font-size: 16px;
+label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #444;
 }
 
+input,
+select {
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #d8dce2;
+  background: #fafafa;
+  transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+  background: white;
+  border-color: #6a9cff;
+  box-shadow: 0 0 0 3px rgba(120,160,255,0.25);
+  outline: none;
+}
+
+/* Кнопка */
 button {
   background: #4c8bf5;
-  color: white;
+  padding: 12px;
   border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
 button:hover {
-  background: #3c73d8;
+  background: #3c74dc;
+}
+
+/* Статистика */
+.stats-box {
+  background: #f8f9ff;
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 8px;
+  border: 1px solid #e2e6ff;
+}
+
+.stats-line {
+  padding: 6px 0;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.stats-line:last-child {
+  border-bottom: none;
+}
+
+/* Фильтр */
+.filter-box {
+  margin: 12px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #e6e9f0;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter-btn:hover {
+  background: #d5d9e3;
+}
+
+.filter-btn.active {
+  background: #4c8bf5;
+  color: white;
+}
+
+/* Карточки расходов */
+.expense-item {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Анимация появления */
+.expense-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.expense-item strong {
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.expense-item small {
+  color: #777;
+  font-size: 13px;
+}
+
+/* Адаптив */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
